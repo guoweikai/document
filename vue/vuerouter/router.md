@@ -108,6 +108,8 @@ const app = new Vue({
 
 ### 命名视图
 
+
+
 ### 重定向和别名
 
 ###  路由组件参数
@@ -123,5 +125,5 @@ const app = new Vue({
 > 可以试用贴 router.beforeEach 注册一个全局前置守卫
 
  ` ` `
- 
+
 
