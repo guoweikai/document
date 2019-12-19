@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>局部注册</title>
+</head>
+
+<body>
+  <scrpt src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></scrpt>
+  <div id="demo1">
+
+  </div>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>局部注册</title>
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="components-demo">
+      <button-counter>
+
+      </button-counter>
+    </div>
+    <div id="components-demo2">
+      <button-counter></button-counter>
+    </div>
+
+
+    <script>
+      var buttonCounter = {
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>',
+        data: function () {
+          return {
+            count: 0
+          }
+        },
+      }
+      new Vue({
+        el: '#components-demo',
+        components: {
+          'button-counter': buttonCounter
+        }
+      })
+      new Vue({ el: '#components-demo2' })
+    </script>
+  </body>
+
+  </html>
+  <script>
+  </script>
+</body>
+
+</html>
