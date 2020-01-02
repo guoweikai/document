@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态路由匹配</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script>
+    const User = {
+      template: `
+    <div class="user">
+      <h2>User {{ $route.params.id }}</h2>
+      <router-view></router-view>
+    </div>
+  `
+    }
+    const UserProfile = {
+      template: `<div>1111</  div>`
+    }
+    const UserPosts = {
+      template: `<div>2222</div>`
+    }
+    const router = new VueRouter({
+      routes: [
+        {
+          path: '/user/:id', component: User,
+          children: [
+            {
+              // 当 /user/:id/profile 匹配成功，
+              // UserProfile 会被渲染在 User 的 <router-view> 中
+              path: 'profile',
+              component: UserProfile
+            },
+            {
+              // 当 /user/:id/posts 匹配成功
+              // UserPosts 会被渲染在 User 的 <router-view> 中
+              path: 'posts',
+              component: UserPosts
+            }
+          ]
+        }
+      ]
+    })
+    router.beforeEach((to, from, next) => {
+      console.log(to)
+      console.log(from)
+      console.log(next) 
+      // ...
+    })
+    const app = new Vue({
+      router
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>
