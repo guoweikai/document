@@ -1,3 +1,2 @@
-module.exports = function(x) {
-  console.log(x);
-};
+var  fs = require('fs')
+console.log(fs)
